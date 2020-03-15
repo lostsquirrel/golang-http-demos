@@ -4,8 +4,6 @@ import (
 	"./custom"
 )
 
-
-
 func main() {
-	custom.CreateHandleServer()
+	custom.CreateProxyServer()
 }
