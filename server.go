@@ -1,9 +1,9 @@
 package main
 
 import (
-	"./custom"
+	"./sockets"
 )
 
 func main() {
-	custom.CreateProxyServer()
+	sockets.Server(":9009")
 }
