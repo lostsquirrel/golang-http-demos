@@ -17,7 +17,7 @@ func (f FooHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 func CreateServe() {
 	myHandler := FooHandler{}
 	s := &http.Server{
-		Addr:           ":8080",
+		Addr:           ":9000",
 		Handler:        myHandler,
 		ReadTimeout:    10 * time.Second,
 		WriteTimeout:   10 * time.Second,

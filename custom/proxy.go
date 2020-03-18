@@ -55,6 +55,7 @@ func (f ProxyHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	log.Printf("url %v", r.URL)
 	log.Printf("url string %s", r.URL.String())
 	log.Print(r)
+	log.Print(r.Method)
 
 	if r.Method == "CONNECT" {
 		hij, ok := w.(http.Hijacker)
@@ -79,6 +80,7 @@ func (f ProxyHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 			host += ":80"
 		}
 		if f.ConnectAction == ConnectProxy {
+			log.Printf("create tcp connection to %s", host)
 			conn, err := net.Dial("tcp", host)
 			if err != nil {
 				hijConn.Write([]byte("HTTP/1.1 404 Not Found\r\n\r\n"))
